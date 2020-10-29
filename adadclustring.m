@@ -3,7 +3,7 @@ close all;
 clc;
 A=dlmread('C:\Users\Mehrdad1\Downloads\Compressed\Data\TrainData.txt');
 N=dlmread('C:\Users\Mehrdad1\Downloads\Compressed\Data\TestData.txt');
-part = input('part A , B are respectively 1 and 2,Enter the number you are testing');
+part = input('part A , B are respectively 1 and 2,Enter the number you are testing:');
 n = input('please enter the sub part you are testing , in case of part A it can be 1,2,3,4 and in case of part B it can be 1,2,3:');
 B=A(1,:);
 if(part==1)
@@ -17,24 +17,28 @@ switch n
     for j=1:10
        B=c(j,:);
        row=reshape(B,[30 40]);
-       figure()
+       %figure()
+       subplot(2,5,j);
        imshow(row')
     end       
 
     %------------------------------
     case 2
-%         m=[];
-%      for i=0:10
-%          m=randi([1 20000]);
-%          k(i,:)= A(m);  
-%      end
-%      [idx,c]=kmeans(A,10,'start',k);
-%      for j=1:10
-%      B=c(j,:);
-%      row=reshape(B,[30 40]);
-%      figure()
-%      imshow(row')
-%     end
+        m=[];
+     for i=1:10
+         m=randi([1 20000]);
+         k(i,:)= A(m,:);  
+     end
+     [idx,c]=kmeans(A,10,'start',k);
+     for j=1:10
+      B=c(j,:);
+      row=reshape(B,[30 40]);
+      %figure();
+      
+      subplot(2,5,j);
+      imshow(row');
+      %hold on;
+     end
     %------------------------------
     case 3
      for i=0:9
@@ -45,7 +49,8 @@ switch n
      for j=1:10
           B=c(j,:);
           row=reshape(B,[30 40]);
-          figure()
+          %figure()
+          subplot(2,5,j);
           imshow(row')
      end       
      
@@ -64,6 +69,7 @@ switch n
         [idx,c]=kmeans(A,10,'start',k);
          for j=1:10
           B=c(j,:);
+          subplot(2,5,j);
           row=reshape(B,[30 40]);
           %figure , imshow(row')
           numberarray=repmat(row' , [1 1 1 1 1 1 1 1 1 10]);
@@ -82,24 +88,26 @@ if(part == 2)
     for j=1:20
        B=c(j,:);
        row=reshape(B,[30 40]);
-       figure()
+       %figure()
+       subplot(2,10,j);
        imshow(row')
     end       
 
     %------------------------------
     case 2
-%         m=[];
-%      for i=0:10
-%          m=randi([1 20000]);
-%          k(i,:)= A(m);  
-%      end
-%      [idx,c]=kmeans(A,10,'start',k);
-%      for j=1:10
-%      B=c(j,:);
-%      row=reshape(B,[30 40]);
-%      figure()
-%      imshow(row')
-%     end
+       % m=[];
+     for i=1:20
+         m=randi([1 20000]);
+         k(i,:)= A(m,:);  
+     end
+     [idx,c]=kmeans(A,20,'start',k);
+     for j=1:20
+     B=c(j,:);
+     row=reshape(B,[30 40]);
+     %figure()
+     subplot(2,10,j);
+     imshow(row')
+    end
     %------------------------------
     case 3
      for i=0:19
@@ -110,7 +118,8 @@ if(part == 2)
      for j=1:20
           B=c(j,:);
           row=reshape(B,[30 40]);
-          figure()
+          %figure()
+          subplot(2,10,j);
           imshow(row')
      end       
      
@@ -118,7 +127,15 @@ if(part == 2)
     end
 end   
 if(part==3)
-    %no idea what so ever :)
+%     new = size(C);
+%     n=new(1);
+%     calssifiyed=[];
+%     for i=1:n
+%         index=new(i,:);
+%         summation = zeros(1,10);
+%         for j=1:7
+%         end
+%     end
 end
 
 
